@@ -58,8 +58,8 @@ class InputState: ObservableObject {
         previousAttackPressed = false
     }
     
-    // For pixel-perfect movement, convert to discrete directions
-    func getPixelPerfectMovement() -> (x: Int, y: Int) {
+    // For smooth movement, convert to discrete directions
+    func getSmoothMovement() -> (x: Int, y: Int) {
         let threshold: Float = 0.3
         
         let x: Int

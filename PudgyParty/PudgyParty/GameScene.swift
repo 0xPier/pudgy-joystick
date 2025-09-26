@@ -9,8 +9,8 @@ class GameScene: SKScene {
     // Player node
     private var player: SKSpriteNode!
     
-    // Movement properties for pixel-perfect feel
-    private let pixelSize: CGFloat = 4.0  // Size of each "pixel" in points
+    // Movement properties for smooth 3D-style feel
+    private let gridSize: CGFloat = 4.0  // Size of each movement unit in points
     private let moveSpeed: CGFloat = 120.0  // Points per second
     private let jumpForce: CGFloat = 400.0
     
@@ -39,8 +39,8 @@ class GameScene: SKScene {
     }
     
     private func setupPlayer() {
-        // Create a simple square player for the pixel art aesthetic
-        player = SKSpriteNode(color: .red, size: CGSize(width: pixelSize * 8, height: pixelSize * 8))
+        // Create a simple square player for the 3D-style aesthetic
+        player = SKSpriteNode(color: .red, size: CGSize(width: gridSize * 8, height: gridSize * 8))
         player.position = CGPoint(x: size.width/2, y: size.height/2)
         
         // Setup physics
@@ -80,8 +80,8 @@ class GameScene: SKScene {
     private func handleInput() {
         guard let playerBody = player.physicsBody else { return }
         
-        // Handle movement with pixel-perfect feel
-        let movement = inputState.getPixelPerfectMovement()
+        // Handle movement with smooth responsive feel
+        let movement = inputState.getSmoothMovement()
         
         // Apply horizontal movement
         let targetVelocityX = CGFloat(movement.x) * moveSpeed
@@ -108,7 +108,7 @@ class GameScene: SKScene {
     }
     
     private func spawnProjectile() {
-        let projectile = SKSpriteNode(color: .yellow, size: CGSize(width: pixelSize * 2, height: pixelSize * 2))
+        let projectile = SKSpriteNode(color: .yellow, size: CGSize(width: gridSize * 2, height: gridSize * 2))
         projectile.position = CGPoint(
             x: player.position.x + (player.size.width/2 + 10),
             y: player.position.y
@@ -153,13 +153,13 @@ class GameScene: SKScene {
         #if DEBUG
         guard let debugLabel = debugLabel, settings.debugOverlayEnabled else { return }
         
-        let movement = inputState.getPixelPerfectMovement()
+        let movement = inputState.getSmoothMovement()
         let velocityX = player.physicsBody?.velocity.dx ?? 0
         let velocityY = player.physicsBody?.velocity.dy ?? 0
         
         debugLabel.text = String(format: """
         Input: dx=%.2f, dy=%.2f
-        Pixel Movement: x=%d, y=%d
+        Movement: x=%d, y=%d
         Velocity: x=%.1f, y=%.1f
         Jump: %@, Attack: %@
         OnGround: %@

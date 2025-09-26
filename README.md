@@ -1,18 +1,18 @@
 # Pudgy Party iOS Game
 
-A pixel-art SpriteKit game with virtual controller support using Apple's GameController framework.
+A 3D-style SpriteKit game with virtual controller support using Apple's GameController framework.
 
 ## Features
 
 - **Virtual Controller**: On-screen controls using GCVirtualController
 - **Physical Controller Support**: Automatic switching between virtual and physical controllers
-- **Pixel-Perfect Movement**: Responsive movement designed for pixel art games
+- **Smooth Movement**: Responsive movement designed for 3D-style gameplay
 - **Debug Overlay**: Development tools for testing input and game state
 
 ## Virtual Controller Implementation
 
 ### Controls
-- **Left Thumbstick**: Movement (8-directional with pixel-perfect feel)
+- **Left Thumbstick**: Movement (8-directional with smooth responsive feel)
 - **Button A**: Jump (single impulse per press)
 - **Button B**: Attack (spawn projectile)
 
@@ -32,7 +32,7 @@ A pixel-art SpriteKit game with virtual controller support using Apple's GameCon
 
 2. **Movement Test**
    - Use left thumbstick to move the red square player
-   - Movement should feel responsive and pixel-perfect
+   - Movement should feel responsive and smooth
    - Player should move in 8 directions (up, down, left, right, diagonals)
    - Releasing thumbstick should stop movement smoothly
 
@@ -88,7 +88,7 @@ A pixel-art SpriteKit game with virtual controller support using Apple's GameCon
 ### ✅ Core Functionality
 - [ ] Virtual controller appears on app launch
 - [ ] Left thumbstick moves player smoothly
-- [ ] Movement feels pixel-perfect and responsive
+- [ ] Movement feels smooth and responsive
 - [ ] Button A triggers jump (one impulse per press)
 - [ ] Button B spawns attack projectile
 - [ ] Player can only jump when on ground
@@ -137,7 +137,7 @@ GameViewController
 ## Development Notes
 
 - Target: iOS 15+, Swift 5+, Xcode 15+
-- Engine: SpriteKit with custom pixel-perfect movement system
+- Engine: SpriteKit with custom smooth movement system
 - Thread Safety: Uses `@MainActor` for UI-related state management
 - Performance: Optimized for 60 FPS gameplay with minimal input latency
 
@@ -148,7 +148,7 @@ feat(input): add GCVirtualController virtual input for Pudgy Party
 
 - Implement virtual controller with left thumbstick + A/B buttons
 - Add automatic physical controller detection and switching
-- Create pixel-perfect movement system for pixel art aesthetic
+- Create smooth movement system for 3D-style aesthetic
 - Add debug overlay for development testing
 - Support user settings for controller behavior customization
 - Ensure thread-safe input handling with edge detection
