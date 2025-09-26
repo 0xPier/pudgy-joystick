@@ -14,7 +14,7 @@ class VirtualControllerManager: ObservableObject {
     }
     
     deinit {
-        disconnect()
+        // Virtual controller cleanup happens automatically
         NotificationCenter.default.removeObserver(self)
     }
     
